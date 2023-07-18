@@ -44,8 +44,8 @@ async def gen_qthumb(videoid, user_id):
         url = f"https://www.youtube.com/watch?v={videoid}"
         if 1==1:
 
-	async def gen_thumb(videoid, user_id):
-                async with session.get(f"http://img.youtube.com/vi/{videoid}/maxresdefault.jpg") as resp:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(f"http://img.youtube.com/vi/{videoid}/maxresdefault.jpg") as resp:
                     if resp.status == 200:
                         f = await aiofiles.open(
                             f"cache/thumb{videoid}.jpg", mode="wb"
