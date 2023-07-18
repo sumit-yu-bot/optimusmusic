@@ -102,7 +102,7 @@ async def gen_thumb(videoid, user_id):
             background = enhancer.enhance(0.6)
             image2 = background
 
-            circle = Image.open("assets/circle.png")
+            circle = Image.open("AnonX/assets/sumit.png")
             
             im = circle
             im = im.convert('RGBA')
