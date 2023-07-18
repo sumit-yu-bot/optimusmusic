@@ -6,7 +6,7 @@ from pyrogram.types import InlineKeyboardMarkup
 
 import config
 from AnonX import Carbon, YouTube, app
-from AnonX.core.call import Yukki
+from AnonX.core.call import Anon
 from AnonX.misc import db
 from AnonX.utils.database import (add_active_chat,
                                        add_active_video_chat,
@@ -16,7 +16,7 @@ from AnonX.utils.exceptions import AssistantErr
 from AnonX.utils.inline.play import (stream_markup,
                                           telegram_markup)
 from AnonX.utils.inline.playlist import close_markup
-from AnonX.utils.pastebin import Yukkibin
+from AnonX.utils.pastebin import Anonbin
 from AnonX.utils.stream.queue import put_queue, put_queue_index
 from AnonX.utils.thumbnails import gen_thumb
 
