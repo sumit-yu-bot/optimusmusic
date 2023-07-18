@@ -20,7 +20,7 @@ from AnonX.utils.pastebin import Anonbin
 from AnonX.utils.stream.queue import put_queue, put_queue_index
 from AnonX.utils.thumbnails import gen_thumb
 
-loop = asyncio.get_event_loop()
+
 
 async def start_stream(
     message,
