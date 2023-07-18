@@ -37,10 +37,9 @@ def truncate(text):
     text2 = text2.strip()     
     return [text1,text2]
 
-
-async def gen_thumb(videoid, user_id):
-    if os.path.isfile(f"cache/{videoid}_{user_id}.jpg"):
-        return f"cache/{videoid}_{user_id}.jpg"
+async def gen_qthumb(videoid, user_id):
+    if os.path.isfile(f"cache/que{videoid}_{user_id}.png"):
+        return f"cache/que{videoid}_{user_id}.png"
     try:
         url = f"https://www.youtube.com/watch?v={videoid}"
         if 1==1:
