@@ -89,14 +89,14 @@ async def gen_thumb(videoid, user_id):
         e = np.dstack((c, d))
         f = Image.fromarray(e)
         x = f.resize((170, 107))
-      
-            youtube = Image.open(f"cache/thumb{videoid}.jpg")
-            image1 = changeImageSize(1280, 720, youtube)
-            image2 = image1.convert("RGBA")
-            background = image2.filter(filter=ImageFilter.BoxBlur(30))
-            enhancer = ImageEnhance.Brightness(background)
-            background = enhancer.enhance(0.6)
-            image2 = background
+
+        youtube = Image.open(f"cache/thumb{videoid}.png")
+        bg = Image.open(f"AnonX/assets/anonx.png")
+        image1 = changeImageSize(1280, 720, youtube)
+        background = image2.filter(filter=ImageFilter.BoxBlur(30))
+        enhancer = ImageEnhance.Brightness(background)
+        background = enhancer.enhance(0.6)
+        image2 = background
 
             circle = Image.open("AnonX/assets/sumit.png")
             
