@@ -47,31 +47,32 @@ async def gen_qthumb(videoid, user_id):
     url = f"https://www.youtube.com/watch?v={videoid}"
     try:
        async def gen_thumb(videoid, user_id):
-    if os.path.isfile(f"cache/{videoid}_{user_id}.png"):
-        return f"cache/{videoid}_{user_id}.png"
-    url = f"https://www.youtube.com/watch?v={videoid}"
-    try:
-        results = VideosSearch(url, limit=1)
-        for result in (await results.next())["result"]:
-            try:
-                title = result["title"]
-                title = re.sub("\W+", " ", title)
-                title = title.title()
-            except:
-                title = "Unsupported Title"
-            try:
-                duration = result["duration"]
-            except:
-                duration = "Unknown"
-            thumbnail = result["thumbnails"][0]["url"].split("?")[0]
-            try:
-                result["viewCount"]["short"]
-            except:
-                pass
-            try:
-                result["channel"]["name"]
-            except:
-                pass
+         if os.path.isfile(f"cache/{videoid}_{user_id}.png"):
+           return f"cache/{videoid}_{user_id}.png"
+           url = f"https://www.youtube.com/watch?v={videoid}"
+           
+           try:
+             results = VideosSearch(url, limit=1)
+             for result in (await results.next())["result"]:
+               try:
+                 title = result["title"]
+                 title = re.sub("\W+", " ", title)
+                 title = title.title()
+                 
+               except:
+                 title = "Unsupported Title"
+                 try:
+                   duration = result["duration"]
+                   except:
+                     duration = "Unknown"
+                     thumbnail = result["thumbnails"][0]["url"].split("?")[0]
+                     try:
+                       result["viewCount"]["short"]
+                       except:
+                         try:
+                           result["channel"]["name"]
+                           except:
+                             pass
 
         async with aiohttp.ClientSession() as session:
             async with session.get(thumbnail) as resp:
