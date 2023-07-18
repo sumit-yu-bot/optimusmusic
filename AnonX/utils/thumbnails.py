@@ -44,8 +44,7 @@ async def gen_thumb(videoid, user_id):
     try:
         url = f"https://www.youtube.com/watch?v={videoid}"
         if 1==1:
-Expand Down
-Expand Up
+
 	@@ -73,97 +73,79 @@ async def gen_thumb(videoid, user_id):
                 async with session.get(f"http://img.youtube.com/vi/{videoid}/maxresdefault.jpg") as resp:
                     if resp.status == 200:
