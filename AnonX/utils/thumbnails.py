@@ -144,4 +144,4 @@ async def thumb_init(videoid):
 
             return file
     except Exception as e:
-        return "AnonX/assest/Audio.jpeg"
+        return "AnonX/assest/youtube.jpg"
