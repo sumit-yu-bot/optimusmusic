@@ -8,7 +8,7 @@ import aiofiles
 import numpy as np
 
 from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
-from AnonX import app
+from YukkiMusic import app
 
 from youtubesearchpython.__future__ import VideosSearch
 from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
@@ -74,6 +74,7 @@ async def gen_thumb(videoid, user_id):
                     f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
                     await f.write(await resp.read())
                     await f.close()
+
         try:
             wxyz = await app.get_profile_photos(user_id)
             wxy = await app.download_media(wxyz[0]['file_id'], file_name=f'{user_id}.jpg')
@@ -88,15 +89,15 @@ async def gen_thumb(videoid, user_id):
         d = np.array(a)
         e = np.dstack((c, d))
         f = Image.fromarray(e)
-        x = f.resize((170, 107))
+        x = f.resize((107, 107))
 
-        youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"AnonX/assets/anonx.png")
-        image1 = changeImageSize(1280, 720, youtube)
-        background = image2.filter(filter=ImageFilter.BoxBlur(30))
-        enhancer = ImageEnhance.Brightness(background)
-        background = enhancer.enhance(0.6)
-        image2 = background
+            youtube = Image.open(f"cache/thumb{videoid}.jpg")
+            image1 = changeImageSize(1280, 720, youtube)
+            image2 = image1.convert("RGBA")
+            background = image2.filter(filter=ImageFilter.BoxBlur(30))
+            enhancer = ImageEnhance.Brightness(background)
+            background = enhancer.enhance(0.6)
+            image2 = background
 
             circle = Image.open("AnonX/assets/sumit.png")
             
